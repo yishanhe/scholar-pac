@@ -17,6 +17,9 @@ Do a `vim .ssh/config` to setup a config file for ssh. An example is like below:
         Port 22
         DynamicForward localhost:1080
         ExitOnForwardFailure yes
+        TCPKeepAlive yes 
+        Compression yes
+        CompressionLevel 9
         User yourusername
 
 You can setup up more options at your decisions.
@@ -40,6 +43,7 @@ Enjoy it.
 
 Try google `my ip` to test or just go to IEEE explorer to test.
 
+Sometimes, you need to refresh the targeted page several times.
 
 
 

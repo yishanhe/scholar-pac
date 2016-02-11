@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Scholar-pac by yishanhe</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Scholar-pac</h1>
+        <p>A PAC file for those scholars who are relying on a ssh tunnel to their school/department machine to download publications from those digital libraries.</p>
+        <p class="view"><a href="https://github.com/yishanhe/scholar-pac">View the Project on GitHub <small>yishanhe/scholar-pac</small></a></p>
+        <ul>
+          <li><a href="https://github.com/yishanhe/scholar-pac/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/yishanhe/scholar-pac/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/yishanhe/scholar-pac">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="scholar-pac" class="anchor" href="#scholar-pac" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>scholar-pac</h1>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Proxy_auto-config">proxy auto-config (PAC)</a> file for those scholars who are relying on a ssh tunnel to their school/department machine to download publications from those digital libraries purchased by their school/universities.</p>
+
+<h2>
+<a id="setup-ssh-config-for-tunneling" class="anchor" href="#setup-ssh-config-for-tunneling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup ssh config for tunneling</h2>
+
+<p>Before setup the ssh tunnel, <code>man ssh</code> and <code>man ssh_config</code> are highly recommended.</p>
+
+<p>More readings about <code>ssh</code> and <code>ssh_config</code>:</p>
+
+<ul>
+<li><a href="http://matt.might.net/articles/ssh-hacks/">SSH Hacks</a></li>
+<li><a href="http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/">Simplify Your Life With an SSH Config File</a></li>
+</ul>
+
+<p>Do a <code>vim .ssh/config</code> to setup a config file for ssh. An example is like below:</p>
+
+<pre><code>Host tunnel-name
+    HostName xxxxxxxxx
+    Port 22
+    DynamicForward localhost:1080
+    ExitOnForwardFailure yes
+    TCPKeepAlive yes
+    Compression yes
+    CompressionLevel 9
+    ServerAliveInterval 60
+    ServerAliveCountMax 60
+    User yourusername
+</code></pre>
+
+<p>Those options are at your decisions.</p>
+
+<h2>
+<a id="setup-chrome" class="anchor" href="#setup-chrome" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup Chrome</h2>
+
+<p>There are many options to explore on different operating systems and browsers for proxying. I will give an example on Chrome.</p>
+
+<p>Install <a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en">SwitchyOmega</a></p>
+
+<p>Delete those default profiles. Add a new profile and select PAC file, import the PAC file in this repository.
+Using a url of this file also works: <a href="https://raw.githubusercontent.com/yishanhe/scholar-pac/master/scholar.pac">https://raw.githubusercontent.com/yishanhe/scholar-pac/master/scholar.pac</a>.
+Name this profile and save it.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>First, start your tunnel <code>ssh -l -N tunnel-name</code> (You can use an alias if you find inputing <code>ssh -l -N</code> annoying.)
+This will run in background.
+In case, you can find this process and kill it by <code>px aux | grep tunnel-name</code> to get its pid xxxxxx and <code>kill xxxxxx</code>.</p>
+
+<p>After turninig on your SwitchyOmega to the profile you previously set, it is all set.</p>
+
+<p>Enjoy it.</p>
+
+<p>Try google <code>my ip</code> to test or just go to IEEE explorer to test.</p>
+
+<ul>
+<li>Sometimes, you need to refresh the targeted page several times such that you can see "purchase"-&gt;"download".</li>
+<li>Sometimes, the ssh link may not be stable on celluar tethering. Better turn on compression.</li>
+</ul>
+
+<h2>
+<a id="accepting-pull-request-to-updaing-the-pac-file" class="anchor" href="#accepting-pull-request-to-updaing-the-pac-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accepting Pull Request to updaing the PAC file.</h2>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/yishanhe">yishanhe</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

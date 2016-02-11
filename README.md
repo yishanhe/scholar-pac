@@ -40,7 +40,7 @@ Name this profile and save it.
 ## Usage
 First, start your tunnel `ssh -l -N tunnel-name` (You can use an alias if you find inputing `ssh -l -N` annoying.)
 This will run in background.
-In case, you can find this process and kill it by `px aux | grep tunnel-name` to get its pid xxxxxx and `kill xxxxxx`.
+In case, you can find this process and kill it by `ps aux | grep tunnel-name` to get its pid xxxxxx and `kill xxxxxx`.
 
 After turninig on your SwitchyOmega to the profile you previously set, it is all set.
 
@@ -51,4 +51,5 @@ Try google `my ip` to test or just go to IEEE explorer to test.
 - Sometimes, you need to refresh the targeted page several times such that you can see "purchase"->"download".
 - Sometimes, the ssh link may not be stable on celluar tethering. Better turn on compression.
 
-## Accepting Pull Request to updaing the PAC file.
+## Accepting Pull Request to update the PAC file.
+The current PAC file only contains a minimal requirement for my usage. And it should be expanded to include more digital libraries.

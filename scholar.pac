@@ -8,6 +8,7 @@ if (shExpMatch(url, "http://dl.acm.org*")) { return proxy_yes; }
 if (shExpMatch(url, "http://*.springer.com*")) { return proxy_yes; }
 if (shExpMatch(url, "http://*.computersinbiologyandmedicine.com*")) { return proxy_yes; }
 if (shExpMatch(url, "http://*.sciencedirect.com*")) { return proxy_yes; }
+if (shExpMatch(url, "http://*.safaribooksonline.com*")) { return proxy_yes; }
 // Proxy anything else
 return proxy_no;
 }

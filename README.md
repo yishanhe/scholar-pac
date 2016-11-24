@@ -38,7 +38,7 @@ Using a url of this file also works: [https://raw.githubusercontent.com/yishanhe
 Name this profile and save it.
 
 ## Usage
-First, start your tunnel `ssh -l -N tunnel-name` (You can use an alias if you find inputing `ssh -l -N` annoying.)
+First, start your tunnel `ssh -f -N tunnel-name` (You can use an alias if you find inputing `ssh -f -N` annoying.)
 This will run in background.
 In case, you can find this process and kill it by `ps aux | grep tunnel-name` to get its pid xxxxxx and `kill xxxxxx`.
 

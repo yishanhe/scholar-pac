@@ -13,6 +13,7 @@ if (shExpMatch(url, "http://*.wiley.com*")) { return proxy_yes; }
 if (shExpMatch(url, "http://*.computer.org*")) { return proxy_yes; }
 if (shExpMatch(url, "http://*.webofknowledge.com*")) { return proxy_yes; }
 if (shExpMatch(url, "http://*.sagepub.com*")) { return proxy_yes; }
+if (shExpMatch(url, "http://*.jstor.org*")) { return proxy_yes; }
 // Proxy anything else
 return proxy_no;
 }
